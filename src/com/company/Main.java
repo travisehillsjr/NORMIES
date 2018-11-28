@@ -41,8 +41,6 @@ public class Main {
         //Set the delimiter used in file
         scanner.useDelimiter(",");
 
-        //Get all tokens and store them in some data structure
-        //I am just printing them
         scanner.reset();
         while (scanner.hasNextLine()){
 
@@ -59,69 +57,14 @@ public class Main {
                     return vals;
                 }
 
-//                    if (checkOnThis1 == CODEIN){
-//                        returnedLATLONG vals = new returnedLATLONG();
-//                        vals.CODE = CODEIN;
-//                        vals.Lat = Double.parseDouble(currentArray[1]);
-//                        vals.Longi = Double.parseDouble(currentArray[2]);
-//                        System.out.printf(" | %s |", currentArray[i]);
-//                        return vals;
-//                    }
-                //System.out.printf("hhhh");
-
                 System.out.printf("\n");
 
             }
         }
-        //Do not forget to close the scanner
         scanner.close();
-        //System.out.printf("****************************\n\n\n\n");
         return FAIL;
     }
 
-    private static void scanThatStuff(){
-        int rowCounter = 0;
-        int posCounter = 0;
-
-        //Get scanner instance
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(new File("SupportFiles/flights.csv"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        //Set the delimiter used in file
-        scanner.useDelimiter(",");
-
-        //Get all tokens and store them in some data structure
-        //I am just printing them
-        scanner.reset();
-        while (scanner.hasNextLine()){
-
-            while (scanner.hasNext())
-            {
-                xvalues x = new xvalues();
-                String current = scanner.next();
-                String[] currentArray = current.split(",");
-                if (rowCounter != 0 ){
-                    x.rowvalue = rowCounter;
-                    for(int i = 0; i < currentArray.length-1; i++){
-                        x.info.add(posCounter, currentArray[i + 1]);
-                    }
-
-                }
-                //System.out.printf("\n");
-                //System.out.print(current + "|");
-                infoin.add(rowCounter, x);
-                rowCounter++;
-                posCounter = 0;
-            }
-        }
-        //Do not forget to close the scanner
-        scanner.close();
-        //System.out.printf("****************************\n\n\n\n");
-    }
 
     private static void getvalues(){
 

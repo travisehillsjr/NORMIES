@@ -145,24 +145,6 @@ public class Main {
             one.Longi = codeNameRes.Longi;
             one.Lat = codeNameRes.Lat;
 
-//            System.out.println("Please enter Airport Code: ");
-//            Str1 = sc.next();
-//            code.add(Str1);
-//
-//            System.out.println("Please enter LAT: ");
-//            dou2 = sc.nextDouble();
-//            lat.add(dou2);
-//
-//            System.out.println("Please enter LONG: ");
-//            dou3 = sc.nextDouble();
-//            lon.add(dou3);
-
-//            one.code = Str1;
-//            one.Longi = dou3;
-//            one.Lat = dou2;
-
-
-
             p.add(one);
 
             keepcount++;
@@ -296,12 +278,10 @@ public class Main {
                 trackints.add(j);
             }
         }
-
         for (int y = 0; y < keepcount-1; y++){
             System.out.printf(" %d,  ", trackints.get(y));
         }
         System.out.printf("\n");
-
         for (int n = 0; n < keepcount - 1; n++){
             addands = 0;
             externalcounter++;
@@ -320,10 +300,8 @@ public class Main {
             one = p.get(Iin);
             System.out.printf("last dist: %f \n", one.distPoints.get(lastPoint));
             addands = addands + one.distPoints.get(lastPoint);
-
             System.out.printf("Ans : %f \n\n\n", addands);
             ANS.add(n, addands);
-
             keepAllPaths ThisPath = new keepAllPaths();
             ThisPath.startEnd = Iin;
             for (int i = 0; i < trackints.size(); i++){
@@ -332,8 +310,6 @@ public class Main {
             ThisPath.distance = addands;
             ALLPATHS.add(AllPathsKeepcount, ThisPath);
             AllPathsKeepcount++;
-
-            //Not Working/////////////// Working on this
             for(int x = 0; x <= keepcount-2; x++){
                 int cval = trackints.get(x);
                 cval = cval + 1;
@@ -355,15 +331,12 @@ public class Main {
                 }
                 trackints.set(x, (cval));
             }
-
-
             if(externalcounter < keepcount-1){
                 for (int y = 0; y < keepcount-1; y++){
                     System.out.printf(" %d,  ", trackints.get(y));
                 }
                 System.out.printf("\n");
             }
-
         }
 
         double shortest = returnShort();
@@ -427,16 +400,10 @@ public class Main {
         // write your code here
 
         System.out.println("Traveling Salesman Problem");
-        //scanThatStuff();
-        //printDataSet();
         getvalues();
-        //setTestValues();
         viewvalues();
         getdistances();
         viewvaluesForOneD();
-        //calculate(0);
-        //double shortest = returnShort();
-        //System.out.printf("\n\n\n This is the shortest path: %f \n", shortest);
         SERIAL_ANSManager();
         printAllRecordedPaths();
     }
